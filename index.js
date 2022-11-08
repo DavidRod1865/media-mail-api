@@ -227,10 +227,6 @@ app.get('/api/weight/:num', (req, res) => {
     }
 })
 
-app.get('/api/value/:number', (req, res) => {
-    res.json(mediaMail.req.shipCost)
-})
-
 app.listen(PORT, () => {
-    console.log('Server Activated!')
+    console.log(`Server Activated on ${PORT}!`)
 })
