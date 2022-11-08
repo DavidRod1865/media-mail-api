@@ -227,6 +227,6 @@ app.get('/api/weight/:num', (req, res) => {
     }
 })
 
-app.listen(PORT, () => {
+app.listen(process.env.PORT || PORT, () => {
     console.log(`Server Activated on ${PORT}!`)
 })
