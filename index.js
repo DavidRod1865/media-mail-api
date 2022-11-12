@@ -221,11 +221,8 @@ app.get('/', (req, res) => {
 })
 
 app.get('/api/weight/:num', (req, res) => {
-    const bookWeight = req.params.num
-    if (mediaMail[bookWeight]){
-    res.json(mediaMail[bookWeight].shipRate)
-    console.log(mediaMail[bookWeight].shipRate)
-    }
+    console.log(mediaMail[req.params.num].shipRate)
+    return res.json(mediaMail[req.params.num].shipRate)
 })
 
 app.listen(process.env.PORT || PORT, () => {
