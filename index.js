@@ -220,9 +220,9 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + "/index.html")
 })
 
-app.get('/api/weight/:num', (req, res) => {
-    console.log(mediaMail[req.params.num].shipRate)
-    return res.json(mediaMail[req.params.num].shipRate)
+app.get('/api/weight/', (req, res) => {
+    console.log(mediaMail)
+    return res.json(mediaMail)
 })
 
 app.listen(process.env.PORT || PORT, () => {
