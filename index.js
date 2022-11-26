@@ -3,218 +3,290 @@ const app = express()
 const PORT = 8000
 const cors = require('cors')
 
-let mediaMail = {
-    1: {
-        shipRate: "3.49"
+app.use(express.json())
+
+let mediaMail = [
+    {
+        weight: 1,
+        rate: 3.49
+    },
+    {
+        weight: 2,
+        rate: 4.16
+    },
+    {
+        weight: 3,
+        rate: 4.83
+    },
+    {
+        weight: 4,
+        rate: 5.50
+    },
+    {
+        weight: 5,
+        rate: 6.17
+    },
+    {
+        weight: 6,
+        rate: 6.84
+    },
+    {
+        weight: 7,
+        rate: 7.51
+    },
+    {
+        weight: 8,
+        rate: 8.21
+    },
+    {
+        weight: 9,
+        rate: 8.91
+    },
+    {
+        weight: 10,
+        rate: 9.61
+    },
+    {
+        weight: 11,
+        rate: 10.31
+    },
+    {
+        weight: 12,
+        rate: 11.01
+    },
+    {
+        weight: 13,
+        rate: 11.71
+    },
+    {
+        weight: 14,
+        rate: 12.41
+    },
+    {
+        weight: 15,
+        rate: 13.11
+    },
+    {
+        weight: 16,
+        rate: 13.81
+    },
+    {
+        weight: 17,
+        rate: 14.51
+    },
+    {
+        weight: 18,
+        rate: 15.21
+    },
+    {
+        weight: 19,
+        rate: 15.91
+    },
+    {
+        weight: 20,
+        rate: 16.61
+    },
+    {
+        weight: 21,
+        rate: 17.31
+    },
+    {
+        weight: 22,
+        rate: 18.01
+    },
+    {
+        weight: 23,
+        rate: 18.71
+    },
+    {
+        weight: 24,
+        rate: 19.41
+    },
+    {
+        weight: 25,
+        rate: 20.11
+    },
+    {
+        weight: 26,
+        rate: 20.81
+    },
+    {
+        weight: 27,
+        rate: 21.51
+    },
+    {
+        weight: 28,
+        rate: 22.21
+    },
+    {
+        weight: 29,
+        rate: 22.91
+    },
+    {
+        weight: 30,
+        rate: 23.61
+    },
+    {
+        weight: 31,
+        rate: 24.31
+    },
+    {
+        weight: 32,
+        rate: 25.01
+    },
+    {
+        weight: 33,
+        rate: 25.71
+    },
+    {
+        weight: 34,
+        rate: 26.41
+    },
+    {
+        weight: 35,
+        rate: 27.11
+    },
+    {
+        weight: 36,
+        rate: 27.81
+    },
+    {
+        weight: 37,
+        rate: 28.51
+    },
+    {
+        weight: 38,
+        rate: 29.21
+    },
+    {
+        weight: 39,
+        rate: 29.91
+    },
+    {
+        weight: 40,
+        rate: 30.61
+    },
+    {
+        weight: 41,
+        rate: 31.31
+    },
+    {
+        weight: 42,
+        rate: 32.01
+    },
+    {
+        weight: 43,
+        rate: 32.71
+    },
+    {
+        weight: 44,
+        rate: 33.41
+    },
+    {
+        weight: 45,
+        rate: 34.11
+    },
+    {
+        weight: 46,
+        rate: 34.81
     },
-    2: {
-        shipRate: "4.16"
+    {
+        weight: 47,
+        rate: 35.51
     },
-    3: {
-        shipRate: "4.83"
+    {
+        weight: 48,
+        rate: 36.21
     },
-    4: {
-        shipRate: "5.50"
+    {
+        weight: 49,
+        rate: 36.91
     },
-    5: {
-        shipRate: "6.17"
+    {
+        weight: 50,
+        rate: 37.61
     },
-    6: {
-        shipRate: "6.84"
+    {
+        weight: 51,
+        rate: 38.31
     },
-    7: {
-        shipRate: "7.51"
+    {
+        weight: 52,
+        rate: 39.01
     },
-    8: {
-        shipRate: "8.21"
+    {
+        weight: 53,
+        rate: 39.71
     },
-    9: {
-        shipRate: "8.91"
+    {
+        weight: 54,
+        rate: 40.41
     },
-    10: {
-        shipRate: "9.61"
+    {
+        weight: 55,
+        rate: 41.11
     },
-    11: {
-        shipRate: "10.31"
+    {
+        weight: 56,
+        rate: 41.81
     },
-    12: {
-        shipRate: "11.01"
+    {
+        weight: 57,
+        rate: 42.51
     },
-    13: {
-        shipRate: "11.71"
+    {
+        weight: 58,
+        rate: 43.21
     },
-    14: {
-        shipRate: "12.41"
+    {
+        weight: 59,
+        rate: 43.91
     },
-    15: {
-        shipRate: "13.11"
+    {
+        weight: 60,
+        rate: 44.61
     },
-    16: {
-        shipRate: "13.81"
+    {
+        weight: 61,
+        rate: 45.31
     },
-    17: {
-        shipRate: "14.51"
+    {
+        weight: 62,
+        rate: 46.01
     },
-    18: {
-        shipRate: "15.21"
+    {
+        weight: 63,
+        rate: 46.71
     },
-    19: {
-        shipRate: "15.91"
+    {
+        weight: 64,
+        rate: 47.41
     },
-    20: {
-        shipRate: "16.61"
+    {
+        weight: 65,
+        rate: 48.11
     },
-    21: {
-        shipRate: "17.31"
+    {
+        weight: 66,
+        rate: 48.81
     },
-    22: {
-        shipRate: "18.01"
+    {
+        weight: 67,
+        rate: 49.51
     },
-    23: {
-        shipRate: "18.71"
+    {
+        weight: 68,
+        rate: 50.21
     },
-    24: {
-        shipRate: "19.41"
+    {
+        weight: 69,
+        rate: 50.91
     },
-    25: {
-        shipRate: "20.11"
+    {
+        weight: 70,
+        rate: 51.61
     },
-    26: {
-        shipRate: "20.81"
-    },
-    27: {
-        shipRate: "21.51"
-    },
-    28: {
-        shipRate: "22.21"
-    },
-    29: {
-        shipRate: "22.91"
-    },
-    30: {  
-        shipRate: "23.61"
-    },
-    31: {
-        shipRate: "24.31"
-    },
-    32: {
-        shipRate: "25.01"
-    },
-    33: {
-        shipRate: "25.71"
-    },
-    34: {
-        shipRate: "26.41"
-    },
-    35: {
-        shipRate: "27.11"
-    },
-    36: {
-        shipRate: "27.81"
-    },
-    37: {
-        shipRate: "28.51"
-    },
-    38: {
-        shipRate: "29.21"
-    },
-    39: {
-        shipRate: "29.91"
-    },
-    40: {
-        shipRate: "30.61"
-    },
-    41: {
-        shipRate: "31.31"
-    },
-    42: {
-        shipRate: "32.01"
-    },
-    43: {
-        shipRate: "32.71"
-    },
-    44: {
-        shipRate: "33.41"
-    },
-    45: {
-        shipRate: "34.11"
-    },
-    46: {
-        shipRate: "34.81"
-    },
-    47: {
-        shipRate: "35.51"
-    },
-    48: {
-        shipRate: "36.21"
-    },
-    49: {
-        shipRate: "36.91"
-    },
-    50: {
-        shipRate: "37.61"
-    },
-    51: {
-        shipRate: "38.31"
-    },
-    52: {
-        shipRate: "39.01"
-    },
-    53: {
-        shipRate: "39.71"
-    },
-    54: {
-        shipRate: "40.41"
-    },
-    55: {
-        shipRate: "41.11"
-    },
-    56: {
-        shipRate: "41.81"
-    },
-    57: {
-        shipRate: "42.51"
-    },
-    58: {
-        shipRate: "43.21"
-    },
-    59: {
-        shipRate: "43.91"
-    },
-    60: {
-        shipRate: "44.61"
-    },
-    61: {
-        shipRate: "45.31"
-    },
-    62: {
-        shipRate: "46.01"
-    },
-    63: {
-        shipRate: "46.71"
-    },
-    64: {
-        shipRate: "47.41"
-    },
-    65: {
-        shipRate: "48.11"
-    },
-    66: {
-        shipRate: "48.81"
-    },
-    67: {
-        shipRate: "49.51"
-    },
-    68: {
-        shipRate: "50.21"
-    },
-    69: {
-        shipRate: "50.91"
-    },
-    70: {
-        shipRate: "51.61"
-    }
-}
+]
 
 app.get('/', (req, res) => {
     res.sendFile(__dirname + "/index.html")
@@ -223,6 +295,19 @@ app.get('/', (req, res) => {
 app.get('/api/weight/', (req, res) => {
     console.log(mediaMail)
     return res.json(mediaMail)
+})
+
+app.get('/api/weight/:weight', (req, res) => {
+    const weight = Number(req.params.weight)
+    const package = mediaMail.find( package => package.weight === weight)
+
+    if (package){
+        console.log(package.rate)
+        res.json(package.rate)
+        } else {
+          res.statusMessage = `Rate for ${weight} lbs package not found!`;
+          res.status(404).end()
+        }
 })
 
 app.listen(process.env.PORT || PORT, () => {
