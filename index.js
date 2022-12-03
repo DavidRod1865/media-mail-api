@@ -12,6 +12,10 @@ app.use(function(req, res, next) {
 
 let mediaMail = [
     {
+        weight: 0,
+        rate: 0.00
+    },
+    {
         weight: 1,
         rate: 3.49
     },
